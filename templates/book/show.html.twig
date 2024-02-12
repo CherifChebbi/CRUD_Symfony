@@ -1,0 +1,11 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BookController!{% endblock %}
+
+{% block body %}
+<h1>Book Details:</h1>
+    <p>Title of Book :{{ book.title }}</p>
+    <p>Publication date : {{ book.publicationDate | date('Y-m-d') }}</p>
+    <p>Author : {{ book.author.username }}</p>
+{% endblock %}

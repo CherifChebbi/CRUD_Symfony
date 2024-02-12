@@ -1,0 +1,15 @@
+{% block content %}
+    <h1>Add an Author </h1>
+    {{ form_start(formA) }}
+    <table class="table">
+        <!-- Display form fields -->
+        <b>{{ form_row(formA.username) }}</b>
+        <b>{{ form_row(formA.email) }}</b>
+        <b>{{ form_row(formA.nb_books) }}</b>
+    </table>
+    <br>
+     <button type="submit" class="btn btn-success"><h3>Ajouter</h3></button>
+    {{ form_end(formA) }}
+   
+<hr>
+{% endblock %}

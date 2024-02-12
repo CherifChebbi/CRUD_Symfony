@@ -1,0 +1,44 @@
+{% block content %}
+    <hr>
+
+        <h1>List of  Books </h1>
+    {# Formulaire de recherche #}
+    <form method="get" action="{{ path('ListBook') }}">
+        <input type="text" name="ref" placeholder="Rechercher par référence">
+        <button type="submit">Rechercher</button>
+    </form>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>REf</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Published</th>
+                <th>publicationDate</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ book.ref }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.Category }}</td>
+                    <td>{{ book.Published }}</td>
+                    <td>{{ book.publicationDate|date("Y-m-d H:i:s") }}</td>
+                    <td>{{ book.Author.username }}</td>
+                    <td>
+                        <a href="{{ path('editBook', {'ref': book.ref}) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ path('deleteBook', {'ref': book.ref}) }}" class="btn btn-danger">Delete</a>
+                        <a href="{{ path('showBook', {'ref': book.ref}) }}" class="btn btn-danger">Show</a>    
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+     <a href="{{ path('ListBook') }}" class="btn btn-secondary">AllBooks</a><br>
+     <a href="{{ path('AddBook') }}" class="btn btn-secondary">AddBook</a>
+     <p>Number of published books : {{ numPublishedBooks }}</p>
+    <p>Number of Unpublished books : {{ numUnPublishedBooks }}</p>
+    <p><h3>The total number of books in the "Science Fiction" category is: {{sum }}</h3></p>
+{% endblock %}

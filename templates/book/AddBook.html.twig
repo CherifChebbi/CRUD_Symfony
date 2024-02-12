@@ -1,0 +1,18 @@
+{% block content %}
+    <h1>Add a Book</h1>
+    {{ form_start(formB) }}
+    <table class="table">
+        <!-- Display form fields -->
+        <b>{{ form_row(formB.ref) }}</b>
+        <b>{{ form_row(formB.title) }}</b>
+        <b>{{ form_row(formB.category) }}</b>
+        <b>{{ form_row(formB.publicationDate) }}</b>
+        <b>{{ form_row(formB.published) }}</b>
+        <b>{{ form_row(formB.author) }}</b>
+    </table>
+    <br>
+     <button type="submit" class="btn btn-success"><h3>Ajouter</h3></button>
+    {{ form_end(formB) }}
+   
+<hr>
+{% endblock %}

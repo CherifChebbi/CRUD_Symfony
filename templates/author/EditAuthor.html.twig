@@ -1,0 +1,19 @@
+{% block content %}
+    <h1>EDIT Author</h1>
+    {{ form_start(formA) }}
+
+    <!-- Display form fields -->
+    {{ form_row(formA.username) }}
+    {{ form_row(formA.email) }}
+    {{ form_row(formA.nb_books) }}
+    
+    <hr>
+
+    <!-- Display "Sauvegarder" button at the end -->
+    <button type="submit" class="btn btn-primary"><h3>Sauvegarder</h3></button>
+    {{ form_end(formA) }}
+
+   
+
+    <a href="{{ path('ListAuthor') }}" class="btn btn-secondary">ListAuthor</a>
+{% endblock %}

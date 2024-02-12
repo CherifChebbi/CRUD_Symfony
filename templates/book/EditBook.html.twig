@@ -1,0 +1,21 @@
+{% block content %}
+    <h1>EDIT BOOK</h1>
+    {{ form_start(formB) }}
+
+    <!-- Display form fields -->
+    <b>{{ form_row(formB.ref) }}</b>
+    <b>{{ form_row(formB.title) }}</b>
+    <b>{{ form_row(formB.category) }}</b>
+    <b>{{ form_row(formB.publicationDate) }}</b>
+    <b>{{ form_row(formB.published) }}</b>
+    <b>{{ form_row(formB.author) }}</b>
+    <hr>
+
+    <!-- Display "Sauvegarder" button at the end -->
+    <button type="submit" class="btn btn-primary"><h3>Sauvegarder</h3></button>
+    {{ form_end(formB) }}
+
+   
+
+    <a href="{{ path('ListBook') }}" class="btn btn-secondary">ListBooks</a>
+{% endblock %}

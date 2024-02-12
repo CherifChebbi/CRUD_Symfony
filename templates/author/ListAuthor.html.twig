@@ -1,0 +1,42 @@
+{% block content %}
+<h1>Liste des Auteurs</h1>
+    <form action="{{ path('ListAuthor') }}" method="get">
+        <label for="min_book_count">Min Number of Books:</label>
+        <input type="number" name="min_book_count" id="min_book_count" required>
+     <br>
+        <label for="max_book_count">Max Number of Books:</label>
+        <input type="number" name="max_book_count" id="max_book_count" required>
+     <br>
+        <button type="submit">Search</button>
+    </form>
+    <form action="{{ path('ListAuthor') }}" method="post">
+        <button type="submit" name="delete" value="1">Delete Authors with 0 Books</button>
+    </form>
+    <table class="table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Number of Books</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for author in authors %}
+                <tr>
+                    <td>{{ author.id }}</td>
+                    <td>{{ author.username }}</td>
+                    <td>{{ author.email }}</td>
+                    <td>{{ author.getNbBooks() }}</td>
+                    <td>
+                        <a href="{{ path('editAuthor', {'id': author.id}) }}" class="btn btn-primary">Éditer</a>
+                        <a href="{{ path('deleteAuthor', {'id': author.id}) }}" class="btn btn-danger">Supprimer</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <br>
+    <a href="{{ path('AddAuthor') }}" class="btn btn-secondary">AddAuthor</a>
+{% endblock %}
